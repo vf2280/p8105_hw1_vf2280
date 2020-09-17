@@ -41,12 +41,15 @@ as.numeric(pull(prob1_df, samp))
 as.numeric(pull(prob1_df, samp_gt_0))
 as.numeric(pull(prob1_df, char_vec))
 as.numeric(pull(prob1_df, factor_vec))
-
 ```
 
-Convert logical vector to numeric, and multiply the random sample by the result.
+Convert the logical vector to numeric, and multiply the random sample by the result, then
+convert the logical vector to a factor, and multiply the random sample by the result, and lastly, convert the logical vector to a factor and then convert the result to numeric, and multiply the random sample by the result.
+
 ```{r}
 as.numeric(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
+as.factor(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
+as.numeric(as.factor(pull(prob1_df, samp_gt_0))) * pull(prob1_df, samp)
 ```
 
 ## Problem 2
