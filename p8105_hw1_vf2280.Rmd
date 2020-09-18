@@ -54,11 +54,24 @@ as.numeric(as.factor(pull(prob1_df, samp_gt_0))) * pull(prob1_df, samp)
 
 ## Problem 2
 
-data("penguins", package = "palmerpenguins")
+Load penguins dataset.
 
 ```{r}
-nrow(penguins)
-ncol(penguins)
-mean(penguins$flipper_length_mm, na.rm = TRUE)
+data("penguins", package = "palmerpenguins")
+head(penguins)
+names(penguins)
 ```
+
+## The penguins data set shows the various species of penguins and their geographical locations. It also shows bill length (mm), bill depth (mm), flipper length (mm), body mass (g), sex, and year. Some interesting values are the maximum and minimum flipper and bill lengths (mm) which are `r max(pull(penguins, flipper_length_mm), na.rm = TRUE)` and `r min(pull(penguins, flipper_length_mm), na.rm = TRUE)`, and `r max(pull(penguins, bill_length_mm), na.rm = TRUE)` and `r min(pull(penguins, bill_length_mm), na.rm = TRUE)`, respectively. The dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length (mm) in the dataset is `r signif(mean(pull(penguins, flipper_length_mm), na.rm = TRUE), 5)`.
+
+## Scatter Plot of Flipper Length (mm) vs. Bill Length (mm)
+
+```{r}
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point(size = 4)
+ggsave(
+  "HW1_plot.png"
+)
+```
+
+
 
