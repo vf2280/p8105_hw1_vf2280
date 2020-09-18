@@ -53,3 +53,12 @@ as.numeric(as.factor(pull(prob1_df, samp_gt_0))) * pull(prob1_df, samp)
 ```
 
 ## Problem 2
+
+data("penguins", package = "palmerpenguins")
+
+```{r}
+nrow(penguins)
+ncol(penguins)
+mean(penguins$flipper_length_mm, na.rm = TRUE)
+```
+
