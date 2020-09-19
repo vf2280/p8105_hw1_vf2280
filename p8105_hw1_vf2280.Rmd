@@ -36,6 +36,10 @@ mean(pull(prob1_df, factor_vec))
 
 I can take the mean of numbers and logical, but not character or factor.
 
+
+
+Now, apply the as.numeric function to the logical, character, and factor variables.
+
 ```{r try_numeric}
 as.numeric(pull(prob1_df, samp))
 as.numeric(pull(prob1_df, samp_gt_0))
@@ -43,14 +47,18 @@ as.numeric(pull(prob1_df, char_vec))
 as.numeric(pull(prob1_df, factor_vec))
 ```
 
-Convert the logical vector to numeric, and multiply the random sample by the result, then
-convert the logical vector to a factor, and multiply the random sample by the result, and lastly, convert the logical vector to a factor and then convert the result to numeric, and multiply the random sample by the result.
+I can convert the logical and factor variables to numeric variables, but not the character vector. The character vector may not convert because there are no numerical values assigned to the character variables for them to be converted which could also explain why the mean cannot be taken from the factor and character vectors as well.
+
+
+
+Now, convert the logical vector to numeric, and multiply the random sample by the result, then convert the logical vector to a factor, and multiply the random sample by the result, and lastly, convert the logical vector to a factor and then convert the result to numeric, and multiply the random sample by the result.
 
 ```{r}
 as.numeric(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
 as.factor(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
 as.numeric(as.factor(pull(prob1_df, samp_gt_0))) * pull(prob1_df, samp)
 ```
+
 
 ## Problem 2
 
@@ -62,7 +70,11 @@ head(penguins)
 names(penguins)
 ```
 
-## The penguins data set shows the various species of penguins and their geographical locations. It also shows bill length (mm), bill depth (mm), flipper length (mm), body mass (g), sex, and year. Some interesting values are the maximum and minimum flipper and bill lengths (mm) which are `r max(pull(penguins, flipper_length_mm), na.rm = TRUE)` and `r min(pull(penguins, flipper_length_mm), na.rm = TRUE)`, and `r max(pull(penguins, bill_length_mm), na.rm = TRUE)` and `r min(pull(penguins, bill_length_mm), na.rm = TRUE)`, respectively. The dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length (mm) in the dataset is `r signif(mean(pull(penguins, flipper_length_mm), na.rm = TRUE), 5)`.
+
+The penguins data set shows the various species of penguins and their geographical locations. It also shows bill length (mm), bill depth (mm), flipper length (mm), body mass (g), sex, and year. Some interesting values are the maximum and minimum flipper and bill lengths (mm) which are `r max(pull(penguins, flipper_length_mm), na.rm = TRUE)` and `r min(pull(penguins, flipper_length_mm), na.rm = TRUE)`, and `r max(pull(penguins, bill_length_mm), na.rm = TRUE)` and `r min(pull(penguins, bill_length_mm), na.rm = TRUE)`, respectively. The dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length (mm) in the dataset is `r signif(mean(pull(penguins, flipper_length_mm), na.rm = TRUE), 5)`.
+
+
+Make a scatterplot of flipper length (mm) vs. bill length(mm).
 
 ## Scatter Plot of Flipper Length (mm) vs. Bill Length (mm)
 
