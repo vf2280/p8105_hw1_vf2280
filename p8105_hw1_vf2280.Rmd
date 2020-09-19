@@ -38,7 +38,7 @@ mean(pull(prob1_df, factor_vec))
 I can take the mean of numbers and logical, but not character or factor.
 
 
-Now, apply the as.numeric function to the logical, character, and factor variables.
+Now, apply the `as.numeric` function to the logical, character, and factor variables.
 
 ```{r try_numeric}
 as.numeric(pull(prob1_df, samp))
@@ -70,7 +70,7 @@ names(penguins)
 ```
 
 
-The penguins data set shows the various species of penguins and their geographical locations. It also shows bill length (mm), bill depth (mm), flipper length (mm), body mass (g), sex, and year. Some interesting values are the maximum and minimum flipper and bill lengths (mm) which are `r max(pull(penguins, flipper_length_mm), na.rm = TRUE)` and `r min(pull(penguins, flipper_length_mm), na.rm = TRUE)`, and `r max(pull(penguins, bill_length_mm), na.rm = TRUE)` and `r min(pull(penguins, bill_length_mm), na.rm = TRUE)`, respectively. The dataset has `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length (mm) in the dataset is `r signif(mean(pull(penguins, flipper_length_mm), na.rm = TRUE), 5)`.
+The penguins data set shows the various species of penguins and their geographical locations. It also shows bill length (mm), bill depth (mm), flipper length (mm), body mass (g), sex, and year. Some interesting values are the maximum and minimum flipper and bill lengths (mm) which are `r max(pull(penguins, flipper_length_mm), na.rm = TRUE)` and `r min(pull(penguins, flipper_length_mm), na.rm = TRUE)`, and `r max(pull(penguins, bill_length_mm), na.rm = TRUE)` and `r min(pull(penguins, bill_length_mm), na.rm = TRUE)`, respectively. And, the maximum and minimum values for body mass (g) are `r max(pull(penguins, body_mass_g), na.rm = TRUE)` and `r min(pull(penguins, body_mass_g), na.rm = TRUE)`, respectively. The dataset akso has `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length (mm) in the dataset is `r signif(mean(pull(penguins, flipper_length_mm), na.rm = TRUE), 5)`.
 
 
 Make a scatterplot of flipper length (mm) vs. bill length(mm).
